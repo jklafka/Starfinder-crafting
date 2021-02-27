@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
@@ -7,10 +8,16 @@ interface ICraftingTaskProps
 }
 
 function CraftingTask(props: ICraftingTaskProps) {
+  const data = ["a", "b", "c"];
+
+  const clickHandler = useCallback(() => {
+    alert('clicked');
+  }, []);
+
   return(
     <Box>
-      <Button onClick={() => { alert('clicked') }} variant="contained" color={props.color}>
-        Primary
+      <Button onClick={clickHandler} variant="contained" color={props.color}>
+        This is a button
       </Button>
     </Box>
   );
